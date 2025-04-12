@@ -16,6 +16,8 @@ import PrivacyPolicy from "../../components/clientCompo/PrivacyPocicy";
 import  Contact  from "../../components/clientCompo/Contact";
 import FAQ from "../../components/clientCompo/FAQ";
 import TermsOfUse from "../../components/clientCompo/TermOfUse";
+import WatchlistPage from "../../components/clientCompo/WatchList";
+import My_Account from "../../components/clientCompo/My_Account";
 
 const HomeRoutes = () => {
     return (
@@ -36,6 +38,8 @@ const HomeRoutes = () => {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/faq" element={<FAQ />} />
                     <Route path="/termsofuse" element={<TermsOfUse />} />
+                    <Route path="/watchlist" element={<WatchlistPage />} />
+                    <Route path="/myaccount" element={<My_Account />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>

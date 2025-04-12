@@ -13,7 +13,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2">
               <li>
-                <NavLink to="#" className="hover:text-blue-400">
+                <NavLink to="/myaccount" className="hover:text-blue-400">
                   My Account
                 </NavLink>
               </li>
@@ -28,7 +28,7 @@ const Footer = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="#" className="hover:text-blue-400">
+                <NavLink to="/watchlist" className="hover:text-blue-400">
                   Wishlist
                 </NavLink>
               </li>
@@ -77,7 +77,7 @@ const Footer = () => {
             <ul className="space-y-2  flex gap-x-6 items-center">
               <li>
                 <NavLink
-                  to="https://www.facebook.com/"
+                  to="https://www.facebook.com/profile.php?id=61573044939989"
                   target="_blank"
                   className="text-gray-400 hover:text-blue-500 transition"
                 >
@@ -115,15 +115,15 @@ const Footer = () => {
           </div>
            {/* Support Section */}
            
-           <div className="flex-1 min-w-[300px] space-y-4 justify-center text-gray-300">
-            <h4 className="text-lg font-semibold text-white border-b-2 border-blue-500 inline-block pb-2 text-center">
+           <div className="flex-1 min-w-max space-y-4 ">
+            <h4 className="text-lg font-semibold text-white border-b-2 border-blue-500 inline-block pb-2">
               Support
             </h4>
 
-            <div className="space-y-3">
-              <div className="flex items-center ">
+            <div className="space-y-2  gap-x-6">
+              <div className="flex items-start ">
                 <svg
-                  className="w-8 h-8 mr-2"
+                  className="w-8 h-8 mr-2 mt-1"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

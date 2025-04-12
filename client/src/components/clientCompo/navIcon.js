@@ -15,11 +15,17 @@ function NavIcon() {
   };
 
   const handleLogout = () => {
+    // Remove user data and token
     localStorage.removeItem("token");
     localStorage.removeItem("userInfo");
+    
+    // Clear cart from localStorage
+    localStorage.removeItem("cart");
+
     setIsProfileOpen(false);
-    window.location.reload();
-  };
+    window.location.reload();  // This will reload the page to reset the state
+};
+
 
   return (
     <div className="flex items-center gap-4 xl:6 relative">

@@ -103,7 +103,7 @@ const Adverties = () => {
         </button>
 
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between">
-          <div className="flex-1 space-y-4 max-sm:space-y-1 max-sm:text-center">
+          <div className="flex-1 max-sm:hidden space-y-4 max-sm:space-y-1 max-sm:text-center">
             <h1 className="text-2xl sm:text-4xl font-bold">
               {slides[currentSlide].title}
             </h1>
@@ -117,8 +117,8 @@ const Adverties = () => {
           </div>
 
           {/* Updated Product Display with Image */}
-          <div className="flex-1 flex justify-center mt-4 sm:mt-0">
-            <div className="relative w-64 h-44 sm:w-80 sm:h-64">
+          <div className="flex-1 flex justify-center mt-4  max-md:mt-0">
+            <div className="relative w-64 h-40 sm:w-80 sm:h-64">
               <div className="absolute inset-0 bg-white/10 rounded-lg backdrop-blur-sm"></div>
               <div className="relative w-full h-full p-4">
                 <img

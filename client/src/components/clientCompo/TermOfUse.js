@@ -29,8 +29,8 @@ const TermsOfUsePage = () => {
   ];
 
   return (
-    <div className="min-h-screen py-6 px-0 sm:px-0 lg:px-0">
-      <div className="max-w-7xl mx-auto bg-white shadow-lg overflow-hidden">
+    <div className="min-h-screen py-0 px-0 sm:px-0 lg:px-0">
+      <div className="max-w-[100%] mx-auto bg-white shadow-lg overflow-hidden">
         {/* Page Header */}
         <div className="bg-blue-600 text-white py-8 px-6 text-center">
           <FileText className="mx-auto h-16 w-16 mb-4" />

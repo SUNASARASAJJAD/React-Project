@@ -10,14 +10,16 @@ const ProductsDetail = () => {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
   const { addToCart, cart } = useCart();
+  const [watchList, setWatchList] = useState([]);
   const navigate = useNavigate();
-
-  const isInCart = cart.some((item) => item.id === Number(id));
 
   useEffect(() => {
     if (id) {
       fetchProduct();
     }
+    // Load watchlist from localStorage
+    const savedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+    setWatchList(savedWatchlist);
   }, [id]);
 
   const fetchProduct = async () => {
@@ -29,6 +31,18 @@ const ProductsDetail = () => {
     }
   };
 
+  const toggleWatchList = () => {
+    let updatedWatchList;
+    if (watchList.some((item) => item.id === product.id)) {
+      updatedWatchList = watchList.filter((item) => item.id !== product.id);
+    } else {
+      updatedWatchList = [...watchList, product];
+    }
+
+    setWatchList(updatedWatchList);
+    localStorage.setItem("watchlist", JSON.stringify(updatedWatchList));
+  };
+
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -38,6 +52,8 @@ const ProductsDetail = () => {
   }
 
   const isOutOfStock = product.status === "inactive";
+  const isInCart = cart.some((item) => item.id === Number(id));
+  const isInWatchList = watchList.some((item) => item.id === Number(id));
 
   return (
     <div className="max-w-7xl mx-auto p-8">
@@ -64,7 +80,11 @@ const ProductsDetail = () => {
               </span>
             ))}
             <span className="text-gray-500">(150 Reviews)</span>
-            <span className={`ml-2 ${isOutOfStock ? "text-red-500" : "text-green-500"}`}>
+            <span
+              className={`ml-2 ${
+                isOutOfStock ? "text-red-500" : "text-green-500"
+              }`}
+            >
               {isOutOfStock ? "Out of Stock" : "In Stock"}
             </span>
           </div>
@@ -94,6 +114,34 @@ const ProductsDetail = () => {
                 className="px-8 py-2 bg-red-500 text-white rounded-md flex-grow"
               >
                 Add To Cart
+              </button>
+            )}
+          </div>
+
+          <div className="flex gap-4 mb-6">
+            {isOutOfStock ? (
+              // Disabled button if out of stock
+              <button
+                disabled
+                className="px-8 py-2 bg-gray-400 text-white rounded-md flex-grow cursor-not-allowed"
+              >
+                Add to Watch List
+              </button>
+            ) : isInWatchList ? (
+              // If the product is already in the watchlist, navigate to the watchlist
+              <button
+                onClick={() => navigate("/watchlist")}
+                className="px-8 py-2 bg-yellow-500 text-white rounded-md flex-grow"
+              >
+                Go to Watchlist
+              </button>
+            ) : (
+              // If the product is not in the watchlist, allow adding it
+              <button
+                onClick={toggleWatchList}
+                className="px-8 py-2 bg-blue-500 text-white rounded-md flex-grow"
+              >
+                Add to Watch List
               </button>
             )}
           </div>

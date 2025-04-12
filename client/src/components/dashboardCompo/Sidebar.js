@@ -41,8 +41,8 @@ const Sidebar = ({ isOpen }) => {
         </ul>
 
         <ul className="side-menu">
-          <li className={location.pathname === "/admin/dashboard4" ? "active" : ""}>
-            <NavLink to="/admin/dashboard">
+          <li className={location.pathname === "/admin/adminsetting" ? "active" : ""}>
+            <NavLink to="/admin/adminsetting">
               <i className="bx bxs-cog"></i>
               <span className="text">Settings</span>
             </NavLink>

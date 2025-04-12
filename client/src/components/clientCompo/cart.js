@@ -10,7 +10,7 @@ const Cart = () => {
       {cart.length > 0 ? (
         cart.map((item) => (
           <div
-            key={item.id}
+            key={item.product_id}
             className="w-full max-w-lg bg-white p-4 rounded-lg shadow mb-4 flex items-center gap-4"
           >
             {/* Product Image */}
@@ -32,21 +32,21 @@ const Cart = () => {
                 <div className="flex items-center gap-2">
                   <button
                     className="text-white bg-gray-800 rounded p-2"
-                    onClick={() => decreaseQty(item.id)}
+                    onClick={() => decreaseQty(item.product_id)}
                   >
                     <i className="fa-solid fa-minus text-xs"></i>
                   </button>
                   <span className="text-lg">{item.quantity}</span>
                   <button
                     className="text-white bg-gray-800 rounded p-2"
-                    onClick={() => increaseQty(item.id)}
+                    onClick={() => increaseQty(item.product_id)}
                   >
                     <i className="fa-solid fa-plus text-xs"></i>
                   </button>
                 </div>
                 <button
                   className="text-red-500 text-lg"
-                  onClick={() => removeItem(item.id)}
+                  onClick={() => removeItem(item.product_id)}
                 >
                   <i className="fa-solid fa-trash"></i>
                 </button>
@@ -83,3 +83,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const OrderTracking = () => {
-  const orderStatus = "Shipped"; // Example Status (Processing, Shipped, Delivered)
+  const orderStatus = "Shipped";
   const trackingId = "TRK123456";
   const estimatedDelivery = "Feb 5, 2025";
 

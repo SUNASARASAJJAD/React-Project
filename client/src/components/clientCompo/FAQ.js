@@ -36,6 +36,14 @@ const FAQ = () => {
     {
       question: "How can I contact customer support?",
       answer: "You can reach our customer support team via email at support@ecommerce.com or by calling +1 (123) 456-7890. Our team is available Monday to Friday, 9 AM to 5 PM."
+    },
+    {
+      question: "How can I contact customer support?",
+      answer: "You can reach our customer support team via email at support@ecommerce.com or by calling +1 (123) 456-7890. Our team is available Monday to Friday, 9 AM to 5 PM."
+    },
+    {
+      question: "How can I contact customer support?",
+      answer: "You can reach our customer support team via email at support@ecommerce.com or by calling +1 (123) 456-7890. Our team is available Monday to Friday, 9 AM to 5 PM."
     }
   ];
 

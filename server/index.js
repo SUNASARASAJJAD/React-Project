@@ -9,6 +9,8 @@ const userLogin = require("./routes/loginRoute/userLoginRoute")
 const adminUser = require("./routes/loginRoute/adminLoginRoute")
 const product = require("./routes/pagesRoute/productPageRoute")
 const category = require("./routes/pagesRoute/categoryRoutePage")
+const ShippingAddress = require("./routes/customerRoute/ShippingAddressRoute")
+const cart_items = require('./routes/customerRoute/Cart_ItemsRoute')
 const path = require("path")
 
 
@@ -18,12 +20,13 @@ const URL = process.env.URL
 
 app.use(cors())
 app.use(express.json())
-app.use(bodyparser.json())
+// app.use(bodyparser.json())
 app.use("/", userLogin)
 app.use("/", adminUser)
 app.use("/", product)
 app.use("/", category)
-
+app.use("/", ShippingAddress);
+app.use("/", cart_items)
 
 
 

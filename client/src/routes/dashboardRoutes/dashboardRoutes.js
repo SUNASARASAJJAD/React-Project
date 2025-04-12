@@ -14,6 +14,8 @@ import AllAdminUsers from '../../pages/admin/adminUsers/AllAdminUsers'
 import AddAdminUser from '../../pages/admin/adminUsers/AddAdminUser'
 import UpdateAdminUser from "../../pages/admin/adminUsers/UpdateAdminUser"
 import ProtectedRoute from '../../pages/admin/auth/ProtectedRoute'
+import AdminSettingsPanel from '../../pages/admin/Setting/Setting'
+// import ForgotPassword from '../../pages/admin/auth/Forget'
 
 
 const dashboaedRoutes = () => {
@@ -45,6 +47,7 @@ const dashboaedRoutes = () => {
                     <Route path='/alladminusers' element={<AllAdminUsers />} />
                     <Route path='/addadmin' element={<AddAdminUser />} />
                     <Route path='/updateadmin/:id' element={<UpdateAdminUser />} />
+                    <Route path='/adminsetting' element={<AdminSettingsPanel />} />
                 </Route>
 
                 {/* 404 route */}
