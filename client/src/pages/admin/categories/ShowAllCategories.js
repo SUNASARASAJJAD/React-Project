@@ -254,7 +254,7 @@ const ShowCategory = () => {
                           </div>
                         </th>
                         <th className="px-8 py-3 text-center text-xs font-medium hover:bg-indigo-600 transition uppercase tracking-wider w-24">
-                          Status
+                          Create At
                         </th>
                         <th className="px-8 py-3 text-center text-xs font-medium hover:bg-indigo-600 transition uppercase tracking-wider w-24">
                           Actions
@@ -301,21 +301,8 @@ const ShowCategory = () => {
                             </td>
                             <td className="px-8 py-4 whitespace-nowrap">
                               <label className="relative inline-flex items-center cursor-pointer">
-                                <input
-                                  type="checkbox"
-                                  className="sr-only peer"
-                                  checked={category.status || false}
-                                  onChange={() =>
-                                    handleStatusChange(
-                                      category.id,
-                                      category.status
-                                    )
-                                  }
-                                />
-                                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                                <span className="ml-3 text-xs font-medium text-gray-700">
-                                  {category.status ? "Active" : "Inactive"}
-                                </span>
+                              
+                               {category.created_at}
                               </label>
                             </td>
 

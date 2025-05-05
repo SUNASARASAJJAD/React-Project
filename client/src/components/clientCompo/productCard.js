@@ -5,16 +5,12 @@ import { useCart } from "../../context/cart";
 import { FaBookmark } from "react-icons/fa6";
 
 const ProductCard = ({ id, image, name, price, status }) => {
- const { addToCart,cart } = useCart();
+  const { addToCart, cart } = useCart();
   const navigate = useNavigate();
 
-  const product = { id, name, price, image }; // Ensure id matches product_id
+  const product = { id, name, price, image };
   const isInCart = cart.some((item) => item.product_id === id);
   const isOutOfStock = status === "inactive";
-
-  const prodetail = () => {
-    navigate(`/productsdetail/${id}`);
-  };
 
   return (
     <div className="bg-white shadow-md relative group hover:shadow-lg transition-shadow cursor-pointer overflow-hidden">
@@ -30,12 +26,12 @@ const ProductCard = ({ id, image, name, price, status }) => {
         </NavLink>
 
         {isOutOfStock && (
-          <div
-            onClick={prodetail}
+          <NavLink
+            to={`/productsdetail/${id}`}
             className="absolute inset-0 flex items-center justify-center bg-gray-100/5 backdrop-blur-md text-white text-sm font-bold z-10"
           >
             Out of Stock
-          </div>
+          </NavLink>
         )}
 
         {!isOutOfStock && (
@@ -64,7 +60,9 @@ const ProductCard = ({ id, image, name, price, status }) => {
         <h4 className="text-sm truncate max-md:text-[10px] max-md:font-normal text-center">
           {name}
         </h4>
-        <span className="text-xs font-bold max-md:text-sm">${price}</span>
+        <span className="text-xs font-bold max-md:text-sm">
+          ${price?.toFixed(2)}
+        </span>
       </div>
     </div>
   );

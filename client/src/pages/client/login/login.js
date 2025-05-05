@@ -31,14 +31,10 @@
                     return;
                 }
 
-                const userPayload = {
-                    username: res.data.user.username,
-                    email: res.data.user.email,
-                    picture: res.data.user.picture || "https://i.pravatar.cc/100",
-                };
+               
 
                 localStorage.setItem("token", res.data.token);
-                localStorage.setItem("userInfo", JSON.stringify(userPayload));
+                localStorage.setItem("user_Id", res.data.user.id);
 
                 toast.success("User Login successfully!", {
                     position: "top-right",

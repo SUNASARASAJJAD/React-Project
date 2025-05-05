@@ -1,40 +1,39 @@
-const express = require("express")
-const bodyparser = require("body-parser")
-const cors = require("cors")
-const dotenv = require("dotenv")
-dotenv.config()
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
 
-const db = require("./connection/connection")
-const userLogin = require("./routes/loginRoute/userLoginRoute")
-const adminUser = require("./routes/loginRoute/adminLoginRoute")
-const product = require("./routes/pagesRoute/productPageRoute")
-const category = require("./routes/pagesRoute/categoryRoutePage")
-const ShippingAddress = require("./routes/customerRoute/ShippingAddressRoute")
-const cart_items = require('./routes/customerRoute/Cart_ItemsRoute')
-const path = require("path")
+const db = require("./connection/connection");
+const userLogin = require("./routes/loginRoute/userLoginRoute");
+const adminUser = require("./routes/loginRoute/adminLoginRoute");
+const product = require("./routes/pagesRoute/productPageRoute");
+const category = require("./routes/pagesRoute/categoryRoutePage");
+const ShippingAddress = require("./routes/customerRoute/ShippingAddressRoute");
+const cart_items = require("./routes/customerRoute/Cart_ItemsRoute");
 
+const app = express();
+const PORT = process.env.PORT || 4500;
+const URL = process.env.URL || `http://localhost:${PORT}`;
 
-const app = express()
-const PORT = process.env.PORT
-const URL = process.env.URL
+// Middleware
+app.use(cors());
+app.use(express.json()); // Single JSON parser
 
-app.use(cors())
-app.use(express.json())
-// app.use(bodyparser.json())
-app.use("/", userLogin)
-app.use("/", adminUser)
-app.use("/", product)
-app.use("/", category)
+// Routes with specific paths
+app.use("/", userLogin);
+app.use("/", adminUser);
+app.use("/", product);
+app.use("/", category);
 app.use("/", ShippingAddress);
-app.use("/", cart_items)
+app.use("/", cart_items);
 
-
-
+// Database connection and server start
 db.connect((err) => {
-    if (err) {
-        console.error("Database Connection Failed!", err);
-    }
-    app.listen(PORT, () => {
-        console.log(`Connected!! Server Running On ${URL}`)
-    })
-})
+  if (err) {
+    console.error("Database Connection Failed!", err);
+    return;
+  }
+  app.listen(PORT, () => {
+    console.log(`Connected!! Server Running On ${URL}`);
+  });
+});

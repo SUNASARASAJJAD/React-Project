@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaSearch, FaTimes } from "react-icons/fa";
 import Adverties from "./Adverties.js";
 import ProductCard from "./productCard.js";
-import SearchBar from "./searchBar.js";
 import SearchbarSmall from "../../pages/client/home/SearchbarSmall.js";
 
-const getProductAPI = process.env.REACT_APP_GET_API;
+const getProductAPI = process.env.REACT_APP_GET_API || "http://localhost:4500/products";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
